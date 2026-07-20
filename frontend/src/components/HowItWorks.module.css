@@ -1,0 +1,244 @@
+.section {
+  padding: 100px 24px;
+  background: var(--bg-surface);
+}
+
+.inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+
+.gradient {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* Two-column body */
+.body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+/* Steps timeline */
+.steps {
+  display: flex;
+  flex-direction: column;
+}
+
+.step {
+  display: flex;
+  gap: 20px;
+}
+
+.stepLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.numWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  flex-shrink: 0;
+}
+
+.num {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--accent-cyan);
+  font-family: ui-monospace, monospace;
+  letter-spacing: 0.05em;
+}
+
+.line {
+  width: 2px;
+  flex: 1;
+  min-height: 36px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
+  margin: 6px 0;
+}
+
+.stepContent {
+  padding-bottom: 40px;
+}
+
+.steps .step:last-child .stepContent {
+  padding-bottom: 0;
+}
+
+.stepTitle {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  padding-top: 10px;
+}
+
+.stepDesc {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+
+.stepDetail {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--accent-cyan);
+  opacity: 0.8;
+  font-family: ui-monospace, monospace;
+  letter-spacing: 0.05em;
+}
+
+/* Terminal */
+.terminalWrap {
+  position: sticky;
+  top: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.terminalLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.terminalLabel::before {
+  content: '';
+  width: 20px;
+  height: 1px;
+  background: var(--border-hover);
+}
+
+.terminal {
+  background: #0a0f1e;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+
+.terminalBar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid var(--border);
+}
+
+.dot1, .dot2, .dot3 {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+}
+.dot1 { background: #ff5f57; }
+.dot2 { background: #febc2e; }
+.dot3 { background: #28c840; }
+
+.terminalTitle {
+  flex: 1;
+  text-align: center;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.terminalBody {
+  padding: 20px;
+  font-family: ui-monospace, 'Cascadia Code', 'Fira Code', monospace;
+  font-size: 0.8rem;
+  line-height: 1.8;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.prompt {
+  color: var(--accent-cyan);
+  margin-right: 8px;
+  font-weight: 700;
+}
+
+.dim {
+  color: var(--text-muted);
+}
+
+.answer {
+  color: var(--text-primary);
+  line-height: 1.7;
+}
+
+.highlight {
+  color: var(--accent-cyan);
+}
+
+.sources {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+  padding-top: 8px;
+}
+
+.cursor {
+  display: inline-block;
+  color: var(--accent-cyan);
+  animation: pulse 1s infinite;
+  font-weight: 200;
+}
+
+.terminalNote {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  border-left: 2px solid var(--border-hover);
+  padding-left: 14px;
+}
+
+@media (max-width: 900px) {
+  .body {
+    grid-template-columns: 1fr;
+  }
+
+  .terminalWrap {
+    position: static;
+  }
+}

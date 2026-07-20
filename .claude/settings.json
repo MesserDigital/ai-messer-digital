@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find /home/messer/projects/ai-messer-digital/frontend/src/components -name \"*.css\" -exec sed -i 's/rgba\\(0, 212, 255,/rgba\\(255, 255, 255,/g' {} +)"
+    ]
+  }
+}
