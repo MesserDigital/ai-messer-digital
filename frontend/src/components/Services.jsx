@@ -38,6 +38,18 @@ const SERVICES = [
   {
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z" />
+        <path d="M12 12v6M9 15l3-3 3 3" />
+      </svg>
+    ),
+    title: 'Cloud AI Integration',
+    description:
+      'When cloud is the right fit, we wire providers like Anthropic Claude and OpenAI directly into your applications — secure API key management, usage monitoring, and clean integration with your existing systems.',
+    tags: ['Claude API', 'OpenAI', 'API Keys'],
+  },
+  {
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path d="M12 2L2 7l10 5 10-5-10-5z" /><path d="M2 17l10 5 10-5" /><path d="M2 12l10 5 10-5" />
       </svg>
     ),
@@ -50,7 +62,7 @@ const SERVICES = [
 
 export default function Services() {
   return (
-    <section id="services" className={styles.services}>
+    <section id="services" className={`${styles.services} dark-section`}>
       <div className={styles.inner}>
         <div className={styles.header}>
           <span className="section-label">Services</span>

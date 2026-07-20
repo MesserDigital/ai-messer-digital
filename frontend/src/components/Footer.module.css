@@ -1,7 +1,15 @@
 .footer {
-  background: var(--bg-surface);
-  border-top: 1px solid var(--border);
-  padding: 60px 24px 0;
+  background: #0a1025;
+  border-top: 1px solid;
+  border-image: linear-gradient(
+    90deg,
+    #06091a 0% 10%,
+    rgba(0, 85, 255, 0.5) 34%,
+    rgba(0, 212, 255, 0.75) 50%,
+    rgba(0, 85, 255, 0.5) 66%,
+    #06091a 90% 100%
+  ) 1;
+  padding: 48px 24px 0;
 }
 
 .inner {
@@ -9,7 +17,7 @@
   margin: 0 auto;
   display: flex;
   gap: 80px;
-  padding-bottom: 48px;
+  padding-bottom: 40px;
 }
 
 .brand {
@@ -25,7 +33,7 @@
 }
 
 .logoRow img {
-  height: 32px;
+  height: 34px;
   width: auto;
 }
 
@@ -42,7 +50,7 @@
 
 .tagline {
   font-size: 0.875rem;
-  color: var(--text-muted);
+  color: rgba(148, 163, 184, 0.8);
   line-height: 1.65;
   max-width: 320px;
   margin-bottom: 16px;
@@ -50,13 +58,13 @@
 
 .parentLink {
   font-size: 0.8rem;
-  color: var(--text-muted);
+  color: rgba(148, 163, 184, 0.6);
   transition: color var(--transition);
-  font-family: ui-monospace, monospace;
+  font-family: var(--font-mono);
 }
 
 .parentLink:hover {
-  color: var(--accent-cyan);
+  color: rgba(148, 163, 184, 0.9);
 }
 
 .links {
@@ -71,22 +79,23 @@
 }
 
 .colTitle {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
+  font-family: var(--font-mono);
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--text-primary);
+  color: rgba(148, 163, 184, 0.6);
   margin-bottom: 4px;
 }
 
 .link {
   font-size: 0.875rem;
-  color: var(--text-muted);
+  color: rgba(148, 163, 184, 0.9);
   transition: color var(--transition);
 }
 
 .link:hover {
-  color: var(--accent-cyan);
+  color: #e2e8f0;
 }
 
 .bottom {
@@ -96,9 +105,9 @@
   align-items: center;
   justify-content: space-between;
   padding: 20px 0;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
   font-size: 0.8rem;
-  color: var(--text-muted);
+  color: rgba(148, 163, 184, 0.6);
 }
 
 .built {

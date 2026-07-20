@@ -2,8 +2,8 @@ import styles from './Hero.module.css';
 
 export default function Hero() {
   return (
-    <section className={styles.hero}>
-      <div className={styles.glow} />
+    <section className={`${styles.hero} dark-section`}>
+      <div className={styles.heroInner}>
       <div className={styles.inner}>
         <h1 className={styles.title}>
           Bring AI Inside<br />
@@ -136,6 +136,7 @@ export default function Hero() {
           </div>
 
         </div>
+      </div>
       </div>
     </section>
   );

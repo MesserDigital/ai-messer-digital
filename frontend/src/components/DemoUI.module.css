@@ -18,6 +18,7 @@
   line-height: 1.15;
   letter-spacing: -0.02em;
   margin-bottom: 16px;
+  color: var(--dark-heading);
 }
 
 .gradient {
@@ -29,7 +30,7 @@
 
 .subtitle {
   font-size: 1.05rem;
-  color: var(--text-secondary);
+  color: var(--dark-body);
   max-width: 520px;
   margin: 0 auto;
   line-height: 1.7;
@@ -40,23 +41,23 @@
   display: flex;
   gap: 0;
   height: 600px;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
+  background: var(--dark-panel);
+  border: 1px solid rgba(0, 212, 255, 0.15);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
 }
 
 /* Sidebar */
 .sidebar {
   width: 280px;
   flex-shrink: 0;
-  border-right: 1px solid var(--border);
+  border-right: 1px solid var(--dark-border);
   display: flex;
   flex-direction: column;
   padding: 20px;
   gap: 16px;
-  background: var(--bg-surface);
+  background: rgba(10, 16, 38, 0.9);
 }
 
 .sidebarHeader {
@@ -70,15 +71,15 @@
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--dark-muted);
 }
 
 .modelBadge {
   font-size: 0.72rem;
   font-weight: 600;
-  color: var(--accent-cyan);
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #00d4ff;
+  background: rgba(0, 212, 255, 0.08);
+  border: 1px solid rgba(0, 212, 255, 0.25);
   border-radius: 100px;
   padding: 3px 10px;
   font-family: ui-monospace, monospace;
@@ -97,19 +98,19 @@
   align-items: center;
   gap: 10px;
   padding: 10px 12px;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
+  background: rgba(12, 20, 45, 0.95);
+  border: 1px solid var(--dark-border);
   border-radius: var(--radius-sm);
   cursor: pointer;
   transition: border-color var(--transition);
 }
 
 .docItem:hover {
-  border-color: var(--border-hover);
+  border-color: rgba(0, 212, 255, 0.35);
 }
 
 .docIcon {
-  color: var(--text-muted);
+  color: var(--dark-muted);
   flex-shrink: 0;
 }
 
@@ -124,7 +125,7 @@
 .docName {
   font-size: 0.78rem;
   font-weight: 500;
-  color: var(--text-primary);
+  color: var(--dark-heading);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -132,7 +133,7 @@
 
 .docMeta {
   font-size: 0.68rem;
-  color: var(--text-muted);
+  color: var(--dark-muted);
 }
 
 .docStatus {
@@ -151,18 +152,18 @@
   width: 100%;
   padding: 10px;
   background: transparent;
-  border: 1px dashed var(--border-hover);
+  border: 1px dashed rgba(255, 255, 255, 0.25);
   border-radius: var(--radius-sm);
-  color: var(--text-secondary);
+  color: var(--dark-body);
   font-size: 0.82rem;
   font-weight: 500;
   transition: color var(--transition), border-color var(--transition), background var(--transition);
 }
 
 .uploadBtn:hover {
-  color: var(--accent-cyan);
-  border-color: var(--accent-cyan);
-  background: rgba(255, 255, 255, 0.05);
+  color: #00d4ff;
+  border-color: rgba(0, 212, 255, 0.45);
+  background: rgba(0, 212, 255, 0.05);
 }
 
 .modelSelect {
@@ -174,16 +175,16 @@
 .selectLabel {
   font-size: 0.72rem;
   font-weight: 600;
-  color: var(--text-muted);
+  color: var(--dark-muted);
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
 .select {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
+  background: var(--dark-input);
+  border: 1px solid var(--dark-border);
   border-radius: var(--radius-sm);
-  color: var(--text-primary);
+  color: var(--dark-heading);
   font-size: 0.82rem;
   padding: 8px 10px;
   font-family: ui-monospace, monospace;
@@ -193,7 +194,7 @@
 
 .select:focus {
   outline: none;
-  border-color: var(--border-hover);
+  border-color: rgba(0, 212, 255, 0.45);
 }
 
 .statusRow {
@@ -216,7 +217,7 @@
 
 .statusText {
   font-size: 0.75rem;
-  color: var(--text-muted);
+  color: var(--dark-muted);
   font-family: ui-monospace, monospace;
 }
 
@@ -243,18 +244,18 @@
 }
 .chatMessages::-webkit-scrollbar-track { background: transparent; }
 .chatMessages::-webkit-scrollbar-thumb {
-  background: var(--border);
+  background: var(--dark-border);
   border-radius: 4px;
 }
 
 .systemMsg {
   font-size: 0.72rem;
-  color: var(--text-muted);
+  color: var(--dark-muted);
   text-align: center;
   font-family: ui-monospace, monospace;
   padding: 8px 16px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--dark-border);
   border-radius: 100px;
   align-self: center;
 }
@@ -280,15 +281,15 @@
 }
 
 .userMsg .msgBubble {
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: var(--text-primary);
+  background: var(--gradient);
+  border: none;
+  color: #fff;
 }
 
 .assistantMsg .msgBubble {
-  background: var(--bg-surface);
-  border: 1px solid var(--border);
-  color: var(--text-primary);
+  background: rgba(10, 16, 38, 0.9);
+  border: 1px solid var(--dark-border);
+  color: var(--dark-heading);
 }
 
 .sources {
@@ -297,7 +298,7 @@
   gap: 6px;
   margin-top: 10px;
   padding-top: 10px;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--dark-border);
 }
 
 .source {
@@ -305,9 +306,9 @@
   align-items: center;
   gap: 5px;
   font-size: 0.7rem;
-  color: var(--accent-cyan);
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #00d4ff;
+  background: rgba(0, 212, 255, 0.08);
+  border: 1px solid rgba(0, 212, 255, 0.2);
   border-radius: 100px;
   padding: 3px 10px;
   font-family: ui-monospace, monospace;
@@ -325,7 +326,7 @@
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: var(--text-muted);
+  background: var(--dark-muted);
   animation: pulse 1.2s infinite;
 }
 
@@ -338,16 +339,16 @@
   align-items: flex-end;
   gap: 10px;
   padding: 16px 20px;
-  border-top: 1px solid var(--border);
-  background: var(--bg-surface);
+  border-top: 1px solid var(--dark-border);
+  background: rgba(10, 16, 38, 0.9);
 }
 
 .input {
   flex: 1;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
+  background: var(--dark-input);
+  border: 1px solid var(--dark-border);
   border-radius: var(--radius);
-  color: var(--text-primary);
+  color: var(--dark-heading);
   font-size: 0.9rem;
   font-family: inherit;
   padding: 12px 16px;
@@ -359,12 +360,12 @@
 }
 
 .input::placeholder {
-  color: var(--text-muted);
+  color: rgba(148, 163, 184, 0.4);
 }
 
 .input:focus {
   outline: none;
-  border-color: var(--border-hover);
+  border-color: rgba(0, 212, 255, 0.45);
 }
 
 .sendBtn {
@@ -400,7 +401,7 @@
   .sidebar {
     width: 100%;
     border-right: none;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--dark-border);
   }
 
   .chatMessages {

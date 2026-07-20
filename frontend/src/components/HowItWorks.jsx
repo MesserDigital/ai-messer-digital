@@ -33,7 +33,7 @@ const STEPS = [
 
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" className={styles.section}>
+    <section id="how-it-works" className={`${styles.section} dark-section`}>
       <div className={styles.inner}>
         <div className={styles.header}>
           <span className="section-label">Process</span>

@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import logo from '../assets/messerdigital.PNG';
+import { useState } from 'react';
+import logo from '../assets/messer-digital-light-full2.png';
 import styles from './Header.module.css';
 
 const NAV_LINKS = [
@@ -11,20 +11,13 @@ const NAV_LINKS = [
 ];
 
 export default function Header() {
-  const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
   return (
-    <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
+    <header className={styles.header}>
       <div className={styles.inner}>
         <a href="#" className={styles.logo}>
-          <img src={logo} alt="Messer Digital" height={36} />
+          <img src={logo} alt="Messer Digital" />
           <span className={styles.aiTag}>AI</span>
         </a>
 

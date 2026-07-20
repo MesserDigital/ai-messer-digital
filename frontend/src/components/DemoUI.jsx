@@ -73,7 +73,7 @@ export default function DemoUI() {
   };
 
   return (
-    <section id="demo" className={styles.section}>
+    <section id="demo" className={`${styles.section} dark-section`}>
       <div className={styles.inner}>
         <div className={styles.header}>
           <span className="section-label">Live Demo</span>

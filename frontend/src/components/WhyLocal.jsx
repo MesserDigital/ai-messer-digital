@@ -67,7 +67,7 @@ const BENEFITS = [
 
 export default function WhyLocal() {
   return (
-    <section id="why-local" className={styles.section}>
+    <section id="why-local" className={`${styles.section} dark-section`}>
       <div className={styles.inner}>
         <div className={styles.header}>
           <span className="section-label">Why Local AI</span>

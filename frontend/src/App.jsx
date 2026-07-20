@@ -6,6 +6,7 @@ import HowItWorks from './components/HowItWorks.jsx';
 import DemoUI from './components/DemoUI.jsx';
 import Contact from './components/Contact.jsx';
 import Footer from './components/Footer.jsx';
+import ChatWidget from './components/ChatWidget.jsx';
 import styles from './App.module.css';
 
 export default function App() {
@@ -14,13 +15,19 @@ export default function App() {
       <Header />
       <main>
         <Hero />
+        <div className="section-divider" />
         <Services />
+        <div className="section-divider" />
         <WhyLocal />
+        <div className="section-divider" />
         <HowItWorks />
+        <div className="section-divider" />
         <DemoUI />
+        <div className="section-divider" />
         <Contact />
       </main>
       <Footer />
+      <ChatWidget />
     </div>
   );
 }

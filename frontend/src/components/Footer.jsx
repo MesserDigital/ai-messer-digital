@@ -1,4 +1,4 @@
-import logo from '../assets/messerdigital.PNG';
+import logo from '../assets/messer-digital-light-full2.png';
 import styles from './Footer.module.css';
 
 export default function Footer() {
@@ -9,7 +9,7 @@ export default function Footer() {
       <div className={styles.inner}>
         <div className={styles.brand}>
           <div className={styles.logoRow}>
-            <img src={logo} alt="Messer Digital" height={32} />
+            <img src={logo} alt="Messer Digital" />
             <span className={styles.aiTag}>AI</span>
           </div>
           <p className={styles.tagline}>
