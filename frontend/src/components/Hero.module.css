@@ -17,8 +17,8 @@
 }
 
 .title {
-  font-size: clamp(1.5rem, 3vw, 2.2rem);
-  font-weight: 500;
+  font-size: clamp(1.75rem, 3.4vw, 2.6rem);
+  font-weight: 300;
   line-height: 1.25;
   letter-spacing: -0.01em;
   margin-bottom: 20px;
@@ -67,7 +67,7 @@
 
 .statNum {
   font-size: 1.3rem;
-  font-weight: 700;
+  font-weight: 600;
   background: var(--gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -94,7 +94,7 @@
 
 .chatWindow {
   background: var(--dark-panel);
-  border: 1px solid rgba(0, 212, 255, 0.15);
+  border: 1px solid rgba(56, 189, 248, 0.15);
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
@@ -107,7 +107,7 @@
   display: flex;
   align-items: center;
   padding: 12px 16px;
-  background: rgba(10, 16, 38, 0.9);
+  background: rgba(11, 18, 32, 0.9);
   border-bottom: 1px solid var(--dark-border);
   gap: 12px;
 }
@@ -141,9 +141,9 @@
 .modelPill {
   font-size: 0.68rem;
   font-weight: 600;
-  color: #00d4ff;
-  background: rgba(0, 212, 255, 0.08);
-  border: 1px solid rgba(0, 212, 255, 0.25);
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.25);
   border-radius: 100px;
   padding: 3px 10px;
   font-family: var(--font-mono);
@@ -182,7 +182,7 @@
 
 /* AI bubble — left aligned */
 .bubbleAI {
-  background: rgba(10, 16, 38, 0.9);
+  background: rgba(11, 18, 32, 0.9);
   border: 1px solid var(--dark-border);
   color: var(--dark-heading);
   border-radius: 4px 16px 16px 16px;
@@ -210,7 +210,7 @@
   align-items: center;
   justify-content: center;
   font-size: 0.6rem;
-  font-weight: 800;
+  font-weight: 600;
   color: #fff;
   flex-shrink: 0;
   margin-top: 2px;
@@ -239,12 +239,12 @@
   gap: 8px;
   padding: 12px 16px;
   border-top: 1px solid var(--dark-border);
-  background: rgba(10, 16, 38, 0.9);
+  background: rgba(11, 18, 32, 0.9);
 }
 
 .inputField {
   flex: 1;
-  background: rgba(12, 20, 45, 0.95);
+  background: rgba(17, 26, 46, 0.95);
   border: 1px solid var(--dark-border);
   border-radius: var(--radius);
   color: var(--dark-muted);

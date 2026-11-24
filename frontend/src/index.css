@@ -1,36 +1,38 @@
 :root {
+  /* Aliases onto the Messer Digital brand tokens (src/styles/messer-brand.css) */
   --bg-base:        #ffffff;
-  --bg-surface:     #eaf1fb;
+  --bg-surface:     var(--md-snow);
   --bg-card:        #ffffff;
-  --bg-card-hover:  #f8f9fc;
+  --bg-card-hover:  #f8fafc;
 
-  --accent-cyan:    #0055ff;
-  --accent-blue:    #0077ff;
-  --accent-purple:  #7c3aed;
-  --accent-gradient: linear-gradient(135deg, #00d4ff 0%, #0055ff 100%);
-  --gradient:        linear-gradient(135deg, #00d4ff 0%, #0055ff 100%);
+  --accent-cyan:    var(--md-blue);
+  --accent-blue:    var(--md-deep);
+  --accent-purple:  var(--md-deep);
+  --accent-gradient: var(--md-gradient);
+  --gradient:        var(--md-gradient);
+  --glow:            var(--md-glow);
 
-  --text-primary:   #0f172a;
+  --text-primary:   var(--md-ink);
   --text-secondary: #475569;
   --text-muted:     #94a3b8;
 
   --border:         rgba(0, 0, 0, 0.08);
   --border-hover:   rgba(0, 0, 0, 0.2);
 
-  --font-sans:      'Inter', system-ui, -apple-system, sans-serif;
-  --font-mono:      ui-monospace, 'Cascadia Code', 'Fira Code', monospace;
+  --font-sans:      var(--md-font);
+  --font-mono:      var(--md-font-mono);
 
-  --radius:         12px;
-  --radius-lg:      20px;
-  --radius-sm:      8px;
+  --radius:         var(--md-radius);
+  --radius-lg:      var(--md-radius-lg);
+  --radius-sm:      var(--md-radius-sm);
   --transition:     0.25s ease;
   --max-width:      1200px;
 
   /* dark-section palette */
-  --dark-bg:        #06091a;
-  --dark-panel:     rgba(10, 16, 37, 0.92);
-  --dark-input:     rgba(10, 16, 38, 0.9);
-  --dark-heading:   #e2e8f0;
+  --dark-bg:        var(--md-night);
+  --dark-panel:     rgba(11, 18, 32, 0.92);
+  --dark-input:     rgba(11, 18, 32, 0.9);
+  --dark-heading:   var(--md-mist);
   --dark-body:      rgba(148, 163, 184, 0.9);
   --dark-muted:     rgba(148, 163, 184, 0.8);
   --dark-border:    rgba(255, 255, 255, 0.1);
@@ -110,9 +112,9 @@ img {
   inset: 0;
   pointer-events: none;
   background:
-    radial-gradient(55% 50% at 15% 0%, rgba(0, 85, 255, 0.18) 0%, transparent 65%),
-    radial-gradient(45% 45% at 85% 40%, rgba(0, 212, 255, 0.14) 0%, transparent 60%),
-    radial-gradient(40% 60% at 50% 110%, rgba(124, 58, 237, 0.12) 0%, transparent 60%);
+    radial-gradient(55% 50% at 15% 0%, rgba(37, 99, 235, 0.18) 0%, transparent 65%),
+    radial-gradient(45% 45% at 85% 40%, rgba(56, 189, 248, 0.14) 0%, transparent 60%),
+    radial-gradient(40% 60% at 50% 110%, rgba(29, 78, 216, 0.12) 0%, transparent 60%);
   animation: heroGlow 10s ease-in-out infinite alternate;
 }
 
@@ -122,10 +124,10 @@ img {
   inset: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(0, 212, 255, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 212, 255, 0.06) 1px, transparent 1px),
-    linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+    linear-gradient(rgba(56, 189, 248, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 189, 248, 0.06) 1px, transparent 1px),
+    linear-gradient(rgba(56, 189, 248, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 189, 248, 0.03) 1px, transparent 1px);
   background-size: 80px 80px, 80px 80px, 20px 20px, 20px 20px;
 }
 
@@ -138,11 +140,11 @@ img {
   height: 1px;
   background: linear-gradient(
     90deg,
-    #06091a 0% 10%,
-    rgba(0, 85, 255, 0.3) 34%,
-    rgba(0, 212, 255, 0.5) 50%,
-    rgba(0, 85, 255, 0.3) 66%,
-    #06091a 90% 100%
+    #070b14 0% 10%,
+    rgba(37, 99, 235, 0.3) 34%,
+    rgba(56, 189, 248, 0.5) 50%,
+    rgba(37, 99, 235, 0.3) 66%,
+    #070b14 90% 100%
   );
 }
 
@@ -159,13 +161,13 @@ img {
   font-size: 0.875rem;
   font-weight: 600;
   transition: transform var(--transition), box-shadow var(--transition);
-  box-shadow: 0 0 24px rgba(0, 85, 255, 0.3);
+  box-shadow: 0 0 24px rgba(37, 99, 235, 0.3);
 }
 
 .btn-primary:hover {
   color: #fff;
   transform: translateY(-2px);
-  box-shadow: 0 0 36px rgba(0, 85, 255, 0.4);
+  box-shadow: 0 0 36px rgba(37, 99, 235, 0.4);
 }
 
 .btn-secondary {
@@ -196,22 +198,29 @@ img {
 
 .dark-section .btn-secondary:hover {
   color: #fff;
-  background: rgba(15, 25, 55, 0.95);
-  border-color: rgba(0, 212, 255, 0.5);
+  background: rgba(22, 32, 54, 0.95);
+  border-color: rgba(56, 189, 248, 0.5);
 }
 
 /* ── Section label ───────────────────────────────────────────────────────── */
 .section-label {
   display: inline-block;
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
+  font-weight: 500;
+  letter-spacing: var(--md-tracking-wide);
   text-transform: uppercase;
-  color: var(--accent-cyan);
+  color: var(--md-cyan);
   margin-bottom: 16px;
 }
 
 .dark-section .section-label {
-  color: #00d4ff;
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: var(--md-tracking-wide);
+  text-transform: uppercase;
+  color: var(--accent-cyan);
+  margin-bottom: 16px;
 }
