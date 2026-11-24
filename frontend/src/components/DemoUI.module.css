@@ -14,7 +14,7 @@
 
 .title {
   font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 800;
+  font-weight: 600;
   line-height: 1.15;
   letter-spacing: -0.02em;
   margin-bottom: 16px;
@@ -42,7 +42,7 @@
   gap: 0;
   height: 600px;
   background: var(--dark-panel);
-  border: 1px solid rgba(0, 212, 255, 0.15);
+  border: 1px solid rgba(56, 189, 248, 0.15);
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
@@ -57,7 +57,7 @@
   flex-direction: column;
   padding: 20px;
   gap: 16px;
-  background: rgba(10, 16, 38, 0.9);
+  background: rgba(11, 18, 32, 0.9);
 }
 
 .sidebarHeader {
@@ -68,7 +68,7 @@
 
 .sidebarTitle {
   font-size: 0.8rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--dark-muted);
@@ -77,12 +77,12 @@
 .modelBadge {
   font-size: 0.72rem;
   font-weight: 600;
-  color: #00d4ff;
-  background: rgba(0, 212, 255, 0.08);
-  border: 1px solid rgba(0, 212, 255, 0.25);
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.25);
   border-radius: 100px;
   padding: 3px 10px;
-  font-family: ui-monospace, monospace;
+  font-family: var(--font-mono);
 }
 
 .docList {
@@ -98,7 +98,7 @@
   align-items: center;
   gap: 10px;
   padding: 10px 12px;
-  background: rgba(12, 20, 45, 0.95);
+  background: rgba(17, 26, 46, 0.95);
   border: 1px solid var(--dark-border);
   border-radius: var(--radius-sm);
   cursor: pointer;
@@ -106,7 +106,7 @@
 }
 
 .docItem:hover {
-  border-color: rgba(0, 212, 255, 0.35);
+  border-color: rgba(56, 189, 248, 0.35);
 }
 
 .docIcon {
@@ -161,9 +161,9 @@
 }
 
 .uploadBtn:hover {
-  color: #00d4ff;
-  border-color: rgba(0, 212, 255, 0.45);
-  background: rgba(0, 212, 255, 0.05);
+  color: #38bdf8;
+  border-color: rgba(56, 189, 248, 0.45);
+  background: rgba(56, 189, 248, 0.05);
 }
 
 .modelSelect {
@@ -187,14 +187,14 @@
   color: var(--dark-heading);
   font-size: 0.82rem;
   padding: 8px 10px;
-  font-family: ui-monospace, monospace;
+  font-family: var(--font-mono);
   appearance: none;
   cursor: pointer;
 }
 
 .select:focus {
   outline: none;
-  border-color: rgba(0, 212, 255, 0.45);
+  border-color: rgba(56, 189, 248, 0.45);
 }
 
 .statusRow {
@@ -218,7 +218,7 @@
 .statusText {
   font-size: 0.75rem;
   color: var(--dark-muted);
-  font-family: ui-monospace, monospace;
+  font-family: var(--font-mono);
 }
 
 /* Chat panel */
@@ -252,7 +252,7 @@
   font-size: 0.72rem;
   color: var(--dark-muted);
   text-align: center;
-  font-family: ui-monospace, monospace;
+  font-family: var(--font-mono);
   padding: 8px 16px;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--dark-border);
@@ -287,7 +287,7 @@
 }
 
 .assistantMsg .msgBubble {
-  background: rgba(10, 16, 38, 0.9);
+  background: rgba(11, 18, 32, 0.9);
   border: 1px solid var(--dark-border);
   color: var(--dark-heading);
 }
@@ -306,12 +306,12 @@
   align-items: center;
   gap: 5px;
   font-size: 0.7rem;
-  color: #00d4ff;
-  background: rgba(0, 212, 255, 0.08);
-  border: 1px solid rgba(0, 212, 255, 0.2);
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.2);
   border-radius: 100px;
   padding: 3px 10px;
-  font-family: ui-monospace, monospace;
+  font-family: var(--font-mono);
 }
 
 /* Typing indicator */
@@ -340,7 +340,7 @@
   gap: 10px;
   padding: 16px 20px;
   border-top: 1px solid var(--dark-border);
-  background: rgba(10, 16, 38, 0.9);
+  background: rgba(11, 18, 32, 0.9);
 }
 
 .input {
@@ -365,7 +365,7 @@
 
 .input:focus {
   outline: none;
-  border-color: rgba(0, 212, 255, 0.45);
+  border-color: rgba(56, 189, 248, 0.45);
 }
 
 .sendBtn {

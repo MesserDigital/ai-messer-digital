@@ -14,7 +14,7 @@
 
 .title {
   font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 800;
+  font-weight: 600;
   line-height: 1.15;
   letter-spacing: -0.02em;
   margin-bottom: 16px;
@@ -55,7 +55,7 @@
 
 .card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3), 0 0 24px rgba(0, 212, 255, 0.06);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3), 0 0 24px rgba(56, 189, 248, 0.06);
 }
 
 .iconWrap {
@@ -65,11 +65,11 @@
   flex-shrink: 0;
   width: 44px;
   height: 44px;
-  background: rgba(0, 85, 255, 0.06);
-  border: 1px solid rgba(0, 85, 255, 0.14);
+  background: rgba(37, 99, 235, 0.06);
+  border: 1px solid rgba(37, 99, 235, 0.14);
   border-radius: var(--radius-sm);
   padding: 10px;
-  color: #00d4ff;
+  color: #38bdf8;
 }
 
 .content {
@@ -79,7 +79,7 @@
 
 .cardTitle {
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 600;
   margin-bottom: 8px;
   color: var(--dark-heading);
 }

@@ -1,4 +1,4 @@
-import logo from '../assets/messer-digital-light-full2.png';
+import logo from '../assets/brand/messer-logo-horizontal-dark.svg';
 import styles from './Footer.module.css';
 
 export default function Footer() {

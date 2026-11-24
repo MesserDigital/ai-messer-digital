@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import mark from '../assets/brand/messer-mark-white.svg';
 import styles from './ChatWidget.module.css';
 
 const GREETING = {
@@ -78,7 +79,7 @@ export default function ChatWidget() {
         <div className={styles.panel}>
           <div className={styles.header}>
             <div className={styles.headerInfo}>
-              <div className={styles.avatar}>AI</div>
+              <div className={styles.avatar}><img src={mark} alt="" /></div>
               <div>
                 <div className={styles.title}>Messer AI</div>
                 <div className={styles.status}>

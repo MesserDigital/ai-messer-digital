@@ -2,17 +2,17 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(10, 16, 37, 0.98);
+  background: rgba(11, 18, 32, 0.98);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid;
   border-image: linear-gradient(
     90deg,
-    #06091a 0% 10%,
-    rgba(0, 85, 255, 0.5) 34%,
-    rgba(0, 212, 255, 0.75) 50%,
-    rgba(0, 85, 255, 0.5) 66%,
-    #06091a 90% 100%
+    #070b14 0% 10%,
+    rgba(37, 99, 235, 0.5) 34%,
+    rgba(56, 189, 248, 0.75) 50%,
+    rgba(37, 99, 235, 0.5) 66%,
+    #070b14 90% 100%
   ) 1;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
 }
@@ -44,7 +44,7 @@
   background: var(--gradient);
   color: #fff;
   font-size: 0.65rem;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 0.1em;
   padding: 3px 7px;
   border-radius: 6px;
@@ -106,9 +106,9 @@
     top: 72px;
     left: 0;
     right: 0;
-    background: rgba(10, 16, 37, 0.98);
-    border-top: 1px solid rgba(0, 85, 255, 0.2);
-    border-bottom: 1px solid rgba(0, 85, 255, 0.2);
+    background: rgba(11, 18, 32, 0.98);
+    border-top: 1px solid rgba(37, 99, 235, 0.2);
+    border-bottom: 1px solid rgba(37, 99, 235, 0.2);
     flex-direction: column;
     padding: 20px 24px;
     gap: 4px;

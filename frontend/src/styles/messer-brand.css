@@ -1,0 +1,38 @@
+/* Messer Digital brand tokens */
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap");
+
+:root {
+  /* core */
+  --md-cyan: #38BDF8;
+  --md-blue: #2563EB;
+  --md-deep: #1D4ED8;
+  --md-ink: #0B1220;
+  --md-night: #070B14;
+  --md-slate: #64748B;
+  --md-mist: #E2E8F0;
+  --md-snow: #F1F5F9;
+
+  --md-gradient: linear-gradient(135deg, var(--md-cyan) 0%, var(--md-blue) 55%, var(--md-deep) 100%);
+  --md-glow: 0 0 40px rgba(37, 99, 235, .35);
+
+  /* type */
+  --md-font: "Outfit", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --md-font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --md-tracking-wide: .32em;   /* small caps labels, e.g. DIGITAL */
+
+  /* shape */
+  --md-radius-sm: 6px;
+  --md-radius: 10px;
+  --md-radius-lg: 16px;
+}
+
+.md-eyebrow {
+  font-family: var(--md-font); font-weight: 500; font-size: .75rem;
+  letter-spacing: var(--md-tracking-wide); text-transform: uppercase; color: var(--md-cyan);
+}
+.md-display { font-family: var(--md-font); font-weight: 300; letter-spacing: -.01em; }
+.md-gradient-text { background: var(--md-gradient); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.md-btn {
+  font-family: var(--md-font); font-weight: 500; border: 0; border-radius: var(--md-radius);
+  padding: .7rem 1.2rem; color: #fff; background: var(--md-gradient); box-shadow: var(--md-glow); cursor: pointer;
+}

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import logo from '../assets/messer-digital-light-full2.png';
+import logo from '../assets/brand/messer-logo-horizontal-animated-dark.svg';
 import styles from './Header.module.css';
 
 const NAV_LINKS = [

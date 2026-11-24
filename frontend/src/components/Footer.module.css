@@ -1,13 +1,13 @@
 .footer {
-  background: #0a1025;
+  background: #0b1220;
   border-top: 1px solid;
   border-image: linear-gradient(
     90deg,
-    #06091a 0% 10%,
-    rgba(0, 85, 255, 0.5) 34%,
-    rgba(0, 212, 255, 0.75) 50%,
-    rgba(0, 85, 255, 0.5) 66%,
-    #06091a 90% 100%
+    #070b14 0% 10%,
+    rgba(37, 99, 235, 0.5) 34%,
+    rgba(56, 189, 248, 0.75) 50%,
+    rgba(37, 99, 235, 0.5) 66%,
+    #070b14 90% 100%
   ) 1;
   padding: 48px 24px 0;
 }
@@ -41,7 +41,7 @@
   background: var(--gradient);
   color: #fff;
   font-size: 0.6rem;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 0.1em;
   padding: 2px 6px;
   border-radius: 5px;
@@ -81,7 +81,7 @@
 .colTitle {
   font-size: 0.7rem;
   font-family: var(--font-mono);
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: rgba(148, 163, 184, 0.6);
