@@ -33,6 +33,7 @@ export default function Footer() {
             <a href="#why-local" className={styles.link}>Why Local AI</a>
             <a href="#how-it-works" className={styles.link}>How It Works</a>
             <a href="#demo" className={styles.link}>Demo</a>
+            <a href="#faq" className={styles.link}>FAQ</a>
             <a href="#contact" className={styles.link}>Contact</a>
           </div>
         </div>

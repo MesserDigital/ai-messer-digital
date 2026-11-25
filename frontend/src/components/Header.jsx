@@ -7,6 +7,7 @@ const NAV_LINKS = [
   { label: 'Why Local AI', href: '#why-local' },
   { label: 'How It Works', href: '#how-it-works' },
   { label: 'Demo', href: '#demo' },
+  { label: 'FAQ', href: '#faq' },
   { label: 'Contact', href: '#contact' },
 ];
 

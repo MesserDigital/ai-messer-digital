@@ -4,6 +4,7 @@ import Services from './components/Services.jsx';
 import WhyLocal from './components/WhyLocal.jsx';
 import HowItWorks from './components/HowItWorks.jsx';
 import DemoUI from './components/DemoUI.jsx';
+import FAQ from './components/FAQ.jsx';
 import Contact from './components/Contact.jsx';
 import Footer from './components/Footer.jsx';
 import ChatWidget from './components/ChatWidget.jsx';
@@ -23,6 +24,8 @@ export default function App() {
         <HowItWorks />
         <div className="section-divider" />
         <DemoUI />
+        <div className="section-divider" />
+        <FAQ />
         <div className="section-divider" />
         <Contact />
       </main>

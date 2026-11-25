@@ -35,11 +35,14 @@ export default function DemoUI() {
   const [input, setInput] = useState('');
   const [sending, setSending] = useState(false);
   const [model, setModel] = useState('Llama');
-  const bottomRef = useRef(null);
+  const messagesRef = useRef(null);
 
+  // Scroll only the chat pane. scrollIntoView() would also scroll the whole
+  // page, which jumped visitors down to this section on first load.
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [messages]);
+    const el = messagesRef.current;
+    if (el) el.scrollTo({ top: el.scrollHeight, behavior: 'smooth' });
+  }, [messages, sending]);
 
   const send = async () => {
     const text = input.trim();
@@ -144,7 +147,7 @@ export default function DemoUI() {
 
           {/* Main chat panel */}
           <div className={styles.chat}>
-            <div className={styles.chatMessages}>
+            <div className={styles.chatMessages} ref={messagesRef}>
               <div className={styles.systemMsg}>
                 Indexed 3 documents · {SAMPLE_DOCS.reduce((a, d) => a + d.pages, 0)} pages · Model: {model}
               </div>
@@ -183,7 +186,6 @@ export default function DemoUI() {
                 </div>
               )}
 
-              <div ref={bottomRef} />
             </div>
 
             <div className={styles.inputRow}>
