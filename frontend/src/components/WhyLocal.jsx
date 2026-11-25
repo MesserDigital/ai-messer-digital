@@ -10,7 +10,7 @@ const BENEFITS = [
     ),
     title: 'Complete Data Privacy',
     description:
-      'Your documents, queries, and responses never leave your network. No vendor can read, store, or train on your proprietary data.',
+      'In a local deployment, your documents, queries, and responses never leave your network. No vendor can read, store, or train on your proprietary data.',
   },
   {
     icon: (
@@ -30,7 +30,7 @@ const BENEFITS = [
     ),
     title: 'Predictable Costs',
     description:
-      'No per-query API fees, no seat licensing that scales with usage. Pay once for setup and run unlimited queries for free.',
+      'No per-query API fees and no seat licensing that scales with usage. After setup, your costs are hardware, power, and optional support — not every question your team asks.',
   },
   {
     icon: (
@@ -38,9 +38,9 @@ const BENEFITS = [
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
       </svg>
     ),
-    title: 'Regulatory Compliance',
+    title: 'Compliance-Friendly',
     description:
-      'Meet HIPAA, SOC 2, GDPR, and other compliance requirements with ease. Local deployments give you full audit control over data handling.',
+      'Support your HIPAA, SOC 2, and GDPR programs. With a local deployment, data handling stays under your control, which makes risk reviews and audits far simpler.',
   },
   {
     icon: (
@@ -77,8 +77,8 @@ export default function WhyLocal() {
           </h2>
           <p className={styles.subtitle}>
             Most AI vendors want your data in their cloud. We build solutions
-            that keep everything on your hardware — with all the power of modern
-            large language models.
+            that keep everything on your hardware — and bring in cloud models
+            only when they're genuinely the better fit for the job.
           </p>
         </div>
 

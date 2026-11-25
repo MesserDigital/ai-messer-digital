@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import styles from './DemoUI.module.css';
 
 const SAMPLE_DOCS = [
-  { name: 'employee-handbook-2024.pdf', size: '2.4 MB', pages: 84 },
+  { name: 'employee-handbook.pdf', size: '2.4 MB', pages: 84 },
   { name: 'q3-financial-report.pdf', size: '1.1 MB', pages: 32 },
   { name: 'product-specs-v3.docx', size: '890 KB', pages: 18 },
 ];
@@ -16,7 +16,7 @@ const SAMPLE_MESSAGES = [
     role: 'assistant',
     content:
       'According to the Employee Handbook (Section 4.2), full-time employees are eligible for up to 3 days of remote work per week after completing their 90-day probationary period. Remote work arrangements must be approved by the direct manager and documented in HR systems.',
-    sources: ['employee-handbook-2024.pdf · p.41'],
+    sources: ['employee-handbook.pdf · p.41'],
   },
   {
     role: 'user',
@@ -34,7 +34,7 @@ export default function DemoUI() {
   const [messages, setMessages] = useState(SAMPLE_MESSAGES);
   const [input, setInput] = useState('');
   const [sending, setSending] = useState(false);
-  const [model, setModel] = useState('llama3');
+  const [model, setModel] = useState('Llama');
   const bottomRef = useRef(null);
 
   useEffect(() => {
@@ -56,7 +56,7 @@ export default function DemoUI() {
         {
           role: 'assistant',
           content:
-            'This demo UI is not yet connected to a live Ollama instance. Once wired up, responses will be generated locally from your uploaded documents.',
+            "This preview isn't connected to a model yet. Want to see it answer questions about your own documents? Book a live walkthrough using the contact form below.",
           sources: [],
           placeholder: true,
         },
@@ -76,7 +76,7 @@ export default function DemoUI() {
     <section id="demo" className={`${styles.section} dark-section`}>
       <div className={styles.inner}>
         <div className={styles.header}>
-          <span className="section-label">Live Demo</span>
+          <span className="section-label">Interactive Preview</span>
           <h2 className={styles.title}>
             Ask Your Documents<br />
             <span className={styles.gradient}>Anything</span>
@@ -84,6 +84,7 @@ export default function DemoUI() {
           <p className={styles.subtitle}>
             This is the interface your team would use. Upload documents on the left,
             ask questions on the right — all running on your local infrastructure.
+            The conversation below is a sample; ask us for a live walkthrough on real hardware.
           </p>
         </div>
 
@@ -128,16 +129,16 @@ export default function DemoUI() {
                 value={model}
                 onChange={(e) => setModel(e.target.value)}
               >
-                <option value="llama3">llama3</option>
-                <option value="mistral">mistral</option>
-                <option value="phi3">phi3</option>
-                <option value="gemma">gemma</option>
+                <option value="Llama">Llama</option>
+                <option value="Mistral">Mistral</option>
+                <option value="Gemma">Gemma</option>
+                <option value="Qwen">Qwen</option>
               </select>
             </div>
 
             <div className={styles.statusRow}>
               <span className={styles.statusDot} />
-              <span className={styles.statusText}>Ollama — not connected</span>
+              <span className={styles.statusText}>Preview mode — sample data</span>
             </div>
           </aside>
 

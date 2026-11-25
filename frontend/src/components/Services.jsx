@@ -21,8 +21,8 @@ const SERVICES = [
     ),
     title: 'Custom AI Assistants',
     description:
-      'Purpose-built AI assistants tailored to your workflows. Customer support bots, internal knowledge bases, HR assistants — trained on your data and deployed locally.',
-    tags: ['Fine-tuning', 'Custom LLMs', 'Chat UI'],
+      'Purpose-built AI assistants tailored to your workflows. Customer support bots, internal knowledge bases, HR assistants — grounded in your own data and deployed locally.',
+    tags: ['Your Data', 'Custom Prompts', 'Chat UI'],
   },
   {
     icon: (

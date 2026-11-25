@@ -6,6 +6,8 @@ const REASONS = [
   'Local AI Deployment',
   'Document Search Solution',
   'Custom AI Assistant',
+  'Live Walkthrough',
+  'AI Readiness Assessment',
   'Project Consultation',
   'Partnership Opportunity',
   'Other',
@@ -52,7 +54,8 @@ export default function Contact() {
           </h2>
           <p className={styles.subtitle}>
             Ready to bring AI inside your business? Tell us about your use case
-            and we'll put together a custom solution.
+            and we'll put together a custom solution. Not sure where to start?
+            Ask for a live walkthrough or an AI readiness assessment.
           </p>
 
           <div className={styles.contactDetails}>

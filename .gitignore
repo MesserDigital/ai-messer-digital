@@ -1,0 +1,15 @@
+# Dependencies — run `npm run install:all` after cloning or pulling
+node_modules/
+
+# Secrets — copy backend/.env.example to backend/.env instead
+.env
+backend/.env
+
+# Logs / OS / editor
+*.log
+.DS_Store
+.vscode/*
+.idea
+
+# Note: frontend/dist/ is intentionally still tracked because the server may
+# serve it straight from the checkout. Rebuild with `npm run build` before committing.

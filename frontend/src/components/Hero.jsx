@@ -13,7 +13,7 @@ export default function Hero() {
         <p className={styles.subtitle}>
           Custom AI solutions that search your documents, answer your team's questions,
           and process your data — all running on your own infrastructure.
-          <strong> Your data never leaves your network.</strong>
+          <strong> Your data stays on your network.</strong>
         </p>
 
         <div className={styles.actions}>
@@ -30,13 +30,13 @@ export default function Hero() {
 
         <div className={styles.stats}>
           <div className={styles.stat}>
-            <span className={styles.statNum}>100%</span>
-            <span className={styles.statLabel}>Private &amp; On-Premise</span>
+            <span className={styles.statNum}>Private</span>
+            <span className={styles.statLabel}>By Default, On Your Hardware</span>
           </div>
           <div className={styles.divider} />
           <div className={styles.stat}>
-            <span className={styles.statNum}>Zero</span>
-            <span className={styles.statLabel}>Cloud API Fees</span>
+            <span className={styles.statNum}>No</span>
+            <span className={styles.statLabel}>Per-Query API Fees</span>
           </div>
           <div className={styles.divider} />
           <div className={styles.stat}>
@@ -63,7 +63,7 @@ export default function Hero() {
               </svg>
               AI Chat
             </div>
-            <div className={styles.modelPill}>llama3</div>
+            <div className={styles.modelPill}>local model</div>
           </div>
 
           {/* Messages */}
@@ -88,7 +88,7 @@ export default function Hero() {
                       <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
                       <polyline points="14 2 14 8 20 8"/>
                     </svg>
-                    hr-handbook-2024.pdf · p.14
+                    hr-handbook.pdf · p.14
                   </div>
                 </div>
               </div>
@@ -112,7 +112,7 @@ export default function Hero() {
                       <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
                       <polyline points="14 2 14 8 20 8"/>
                     </svg>
-                    hr-handbook-2024.pdf · p.41
+                    hr-handbook.pdf · p.41
                   </div>
                 </div>
               </div>

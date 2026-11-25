@@ -77,24 +77,24 @@ export default function HowItWorks() {
                 <span className={styles.terminalTitle}>local-ai — search</span>
               </div>
               <div className={styles.terminalBody}>
-                <p><span className={styles.prompt}>$</span> query --model llama3 --docs ./company-docs/</p>
+                <p><span className={styles.prompt}>$</span> query --model local --docs ./company-docs/</p>
                 <p className={styles.dim}>Indexing 847 documents... done</p>
-                <p className={styles.dim}>Loading model: llama3 (4.7GB) ... ready</p>
+                <p className={styles.dim}>Loading local model on GPU ... ready</p>
                 <br />
                 <p><span className={styles.prompt}>&gt;</span> What is our Q3 refund policy?</p>
                 <br />
                 <p className={styles.answer}>
-                  Based on <span className={styles.highlight}>policies/refunds-2024.pdf</span>, your Q3 refund
+                  Based on <span className={styles.highlight}>policies/refunds.pdf</span>, your Q3 refund
                   policy allows full refunds within 30 days of purchase, with store credit
                   offered up to 90 days...
                 </p>
                 <br />
-                <p className={styles.sources}>Sources: policies/refunds-2024.pdf · hr/handbook-v3.pdf</p>
+                <p className={styles.sources}>Sources: policies/refunds.pdf · hr/handbook-v3.pdf</p>
                 <span className={styles.cursor}>|</span>
               </div>
             </div>
             <p className={styles.terminalNote}>
-              Everything runs on your hardware. No cloud calls, no third-party APIs — just your model, your documents, your network.
+              In a local deployment, everything runs on your hardware. No cloud calls, no third-party APIs — just your model, your documents, your network.
             </p>
           </div>
         </div>

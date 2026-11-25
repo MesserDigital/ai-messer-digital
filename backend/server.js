@@ -7,7 +7,65 @@ const app = express();
 const PORT = process.env.PORT || 3003;
 
 app.use(cors());
-app.use(express.json());
+app.use(express.json({ limit: '100kb' }));
+
+// ── Helpers ───────────────────────────────────────────────────────────────────
+
+// Behind Cloudflare + nginx every request reaches Node from a proxy address,
+// so key rate limits on the real client IP Cloudflare forwards.
+function clientIp(req) {
+  return req.get('cf-connecting-ip') || req.get('x-real-ip') || req.ip;
+}
+
+// Minimal fixed-window, in-memory rate limiter (single process is all we run).
+function rateLimit({ windowMs, max, message }) {
+  const hits = new Map();
+  setInterval(() => {
+    const now = Date.now();
+    for (const [key, entry] of hits) if (entry.reset <= now) hits.delete(key);
+  }, windowMs).unref();
+
+  return (req, res, next) => {
+    const key = clientIp(req);
+    const now = Date.now();
+    let entry = hits.get(key);
+    if (!entry || entry.reset <= now) {
+      entry = { count: 0, reset: now + windowMs };
+      hits.set(key, entry);
+    }
+    entry.count += 1;
+    if (entry.count > max) {
+      res.set('Retry-After', String(Math.ceil((entry.reset - now) / 1000)));
+      return res.status(429).json({ error: message });
+    }
+    next();
+  };
+}
+
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+// Header values must stay on one line.
+const oneLine = (str) => String(str).replace(/[\r\n]+/g, ' ').trim();
+
+const contactLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 5,
+  message: 'Too many submissions, please try again later.',
+});
+
+// Protects the API bill when the widget runs on a cloud provider.
+const chatLimiter = rateLimit({
+  windowMs: 60 * 60 * 1000,
+  max: 40,
+  message: 'You have sent a lot of messages — please try again later, or email hello@messerdigital.com.',
+});
 
 // Health check
 app.get('/api/health', (_req, res) => {
@@ -31,6 +89,8 @@ const CONTACT_REASONS = [
   'Local AI Deployment',
   'Document Search Solution',
   'Custom AI Assistant',
+  'Live Walkthrough',
+  'AI Readiness Assessment',
   'Project Consultation',
   'Partnership Opportunity',
   'Other',
@@ -38,30 +98,41 @@ const CONTACT_REASONS = [
 
 app.get('/api/contact/reasons', (_req, res) => res.json(CONTACT_REASONS));
 
-app.post('/api/contact', async (req, res) => {
-  const { name, email, company, reason, message } = req.body;
+const LIMITS = { name: 100, email: 254, company: 150, message: 5000 };
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  if (!name || !email || !reason || !message) {
+app.post('/api/contact', contactLimiter, async (req, res) => {
+  const { name, email, reason, message } = req.body ?? {};
+  const company = typeof req.body?.company === 'string' ? req.body.company.trim() : '';
+
+  if (![name, email, reason, message].every((v) => typeof v === 'string' && v.trim())) {
     return res.status(400).json({ error: 'Name, email, reason, and message are required.' });
   }
   if (!CONTACT_REASONS.includes(reason)) {
     return res.status(400).json({ error: 'Invalid reason.' });
   }
+  if (!EMAIL_RE.test(email) || email.length > LIMITS.email) {
+    return res.status(400).json({ error: 'Please enter a valid email address.' });
+  }
+  if (name.length > LIMITS.name || company.length > LIMITS.company || message.length > LIMITS.message) {
+    return res.status(400).json({ error: 'Message is too long.' });
+  }
 
   try {
     await transporter.sendMail({
-      from:    `"${name}" <${process.env.SMTP_USER}>`,
-      replyTo: email,
+      // Fixed display name: a visitor-controlled "From" name invites spoofing.
+      from:    `"Messer Digital AI website" <${process.env.SMTP_USER}>`,
+      replyTo: oneLine(email),
       to:      process.env.CONTACT_TO || 'hello@messerdigital.com',
-      subject: `[${reason}] Message from ${name}${company ? ` — ${company}` : ''}`,
+      subject: `[${reason}] Message from ${oneLine(name)}${company ? ` — ${oneLine(company)}` : ''}`,
       text:    `Name: ${name}\nEmail: ${email}\nCompany: ${company || 'N/A'}\nReason: ${reason}\n\n${message}`,
       html: `
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Company:</strong> ${company || 'N/A'}</p>
-        <p><strong>Reason:</strong> ${reason}</p>
+        <p><strong>Name:</strong> ${escapeHtml(name)}</p>
+        <p><strong>Email:</strong> ${escapeHtml(email)}</p>
+        <p><strong>Company:</strong> ${company ? escapeHtml(company) : 'N/A'}</p>
+        <p><strong>Reason:</strong> ${escapeHtml(reason)}</p>
         <hr/>
-        <p>${message.replace(/\n/g, '<br/>')}</p>
+        <p>${escapeHtml(message).replace(/\n/g, '<br/>')}</p>
       `,
     });
     res.json({ success: true });
@@ -86,13 +157,13 @@ const SYSTEM_PROMPT = `You are the AI assistant on the Messer Digital AI website
 You are a live demonstration of the services Messer Digital sells, so be helpful, concise, and professional.
 
 About Messer Digital AI:
-- Custom AI solutions for businesses, with a local-first philosophy: models run on the client's own hardware so data never leaves their network.
+- Custom AI solutions for businesses, private by default: models usually run on the client's own hardware so their data stays on their network.
 - Services: local document search (RAG pipelines with source citations), custom AI assistants (support bots, internal knowledge bases, HR assistants), private AI deployment (on-premise, Docker, air-gapped), cloud AI integration (wiring Claude, OpenAI, and other cloud AI APIs into existing applications when cloud is the right fit), and AI integration consulting (assessment, strategy, roadmap).
-- Why local AI: complete data privacy, no per-query API fees, low-latency inference, easier HIPAA/SOC 2/GDPR compliance, no dependency on external API uptime, full customization with no vendor lock-in.
+- Why local AI: data privacy, no per-query API fees (ongoing costs are hardware, power and optional support), low-latency inference, data handling that supports HIPAA/SOC 2/GDPR programs, no dependency on external API uptime, full customization with no vendor lock-in.
 - When cloud AI makes sense (spiky workloads, frontier-model capability needs, no GPU budget), Messer Digital can integrate cloud providers securely via API keys instead — the point is fitting the deployment to the client's needs.
 - Contact: hello@messerdigital.com, or the contact form on this page. Parent site: messerdigital.com.
 
-Keep answers to a few sentences. If asked something unrelated to Messer Digital or AI services, politely steer back. Never invent pricing; suggest contacting for a quote.`;
+Keep answers to a few sentences. If asked something unrelated to Messer Digital or AI services, politely steer back. Never invent pricing; suggest contacting for a quote. Never promise that a deployment makes a client compliant with any regulation — say it supports their compliance work.`;
 
 const MAX_CHAT_MESSAGES = 20;
 const MAX_MESSAGE_LENGTH = 2000;
@@ -172,7 +243,7 @@ const BUILTIN_ANSWERS = [
   {
     match: /privacy|private|secure|security|hipaa|gdpr|soc\s?2|complian/i,
     reply:
-      'Privacy is the core of what we do: with a local deployment your documents, queries, and responses never leave your network. That makes HIPAA, SOC 2, and GDPR compliance far simpler — you keep full audit control over data handling.',
+      'Privacy is the core of what we do: with a local deployment your documents, queries, and responses never leave your network. That keeps data handling under your control, which supports HIPAA, SOC 2, and GDPR programs and makes risk reviews much simpler.',
   },
   {
     match: /deploy|install|on.?prem|server|hardware|gpu|docker|air.?gap/i,
@@ -192,7 +263,7 @@ const BUILTIN_ANSWERS = [
   {
     match: /ollama|local (ai|model|llm)|llama|mistral/i,
     reply:
-      'We typically deploy open models like Llama through Ollama on your own hardware — zero cloud API fees, low latency, and your data stays put. This assistant itself will soon run on exactly that stack.',
+      'We typically deploy open models through Ollama on your own hardware — no per-query API fees, low latency, and your data stays put. This assistant itself will soon run on exactly that stack.',
   },
 ];
 
@@ -205,7 +276,7 @@ function chatBuiltin(messages) {
   return "I can tell you about Messer Digital's services — local document search, custom AI assistants, private deployments, cloud AI integration, and consulting. What would you like to know? For anything specific, hello@messerdigital.com is the fastest route.";
 }
 
-app.post('/api/chat', async (req, res) => {
+app.post('/api/chat', chatLimiter, async (req, res) => {
   const { messages } = req.body;
 
   if (!Array.isArray(messages) || messages.length === 0) {

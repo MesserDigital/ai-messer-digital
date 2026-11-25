@@ -8,6 +8,15 @@ const GREETING = {
     "Hi! I'm the Messer Digital AI assistant. Ask me anything about our local AI solutions, cloud integrations, or how we could help your business.",
 };
 
+// Honest note about what is answering, so a cloud-backed demo never
+// contradicts the "private by default" pitch.
+const PROVIDER_NOTES = {
+  ollama: 'Running on a local model on our own server.',
+  anthropic: 'This website demo uses a cloud model. Client deployments run on your own hardware.',
+  openai: 'This website demo uses a cloud model. Client deployments run on your own hardware.',
+  builtin: 'Pre-written answers for now — a live local model is coming soon.',
+};
+
 const SUGGESTIONS = [
   'What services do you offer?',
   'Why local AI instead of cloud?',
@@ -19,6 +28,7 @@ export default function ChatWidget() {
   const [messages, setMessages] = useState([GREETING]);
   const [input, setInput] = useState('');
   const [busy, setBusy] = useState(false);
+  const [provider, setProvider] = useState(null);
   const scrollRef = useRef(null);
   const inputRef = useRef(null);
 
@@ -51,8 +61,13 @@ export default function ChatWidget() {
             .map(({ role, content }) => ({ role, content })),
         }),
       });
+      const data = await resp.json().catch(() => ({}));
+      if (resp.status === 429 && data.error) {
+        setMessages((prev) => [...prev, { role: 'assistant', content: data.error }]);
+        return;
+      }
       if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
-      const data = await resp.json();
+      if (data.provider) setProvider(data.provider);
       setMessages((prev) => [...prev, { role: 'assistant', content: data.content }]);
     } catch {
       setMessages((prev) => [
@@ -128,6 +143,10 @@ export default function ChatWidget() {
               </div>
             )}
           </div>
+
+          {provider && PROVIDER_NOTES[provider] && (
+            <p className={styles.disclosure}>{PROVIDER_NOTES[provider]}</p>
+          )}
 
           <form className={styles.inputRow} onSubmit={onSubmit}>
             <input
